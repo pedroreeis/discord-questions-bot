@@ -9,7 +9,7 @@ const client = new Client({
 
 // Banco de Dados
 const db = require('mysql2')
-const connection = db.createConnection({host: '147.135.64.147', user: 'u1038_oI3ZeSXf5a', database: 's1038_database', password: 'TKvIOZ+bBuw^RjIAU!+Vwnt='})
+const connection = db.createConnection({host: '', user: '', database: '', password: ''})
 connection.connect();
 client.connection = connection;
 
@@ -23,4 +23,4 @@ const eventFiles = readdirSync(join(__dirname, "events")).filter((file) => file.
 }
 
 // Autenticação
-client.login("Njc0NzM4Mzg1NjI5NDc4OTM5.Xjs9Fw.28pCthcN1GV2_w1XuWmDhBIWY4c")
+client.login("")
