@@ -9,13 +9,9 @@ const client = new Client({
 
 // Banco de Dados
 const db = require('mysql2')
-const connection = db.createConnection({host: 'localhost', user: 'root', database: 'discordbot'})
+const connection = db.createConnection({host: '147.135.64.147', user: 'u1038_oI3ZeSXf5a', database: 's1038_database', password: 'TKvIOZ+bBuw^RjIAU!+Vwnt='})
 connection.connect();
-console.log(`[MYSQL] Connect.`)
 client.connection = connection;
-
-//WEB
-require("./dashboard/server");
 
 //Events
 const eventFiles = readdirSync(join(__dirname, "events")).filter((file) => file.endsWith(".js")); 
@@ -27,6 +23,4 @@ const eventFiles = readdirSync(join(__dirname, "events")).filter((file) => file.
 }
 
 // Autenticação
-console.log(`[SYSTEM] Running.`);
-client.login("SEUTOKEN")
-console.log(`[DISCORD] Logged.`)
+client.login("Njc0NzM4Mzg1NjI5NDc4OTM5.Xjs9Fw.28pCthcN1GV2_w1XuWmDhBIWY4c")

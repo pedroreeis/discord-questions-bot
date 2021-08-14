@@ -1,16 +1,10 @@
-const {MessageEmbed} = require('discord.js')
-const {verificaSemelhanca} = require('../functions/dife')
-
 module.exports.run = async (client, message) => {
     if (message.author.bot) return;
     if (!message.guild) return;
 
-    client.connection.query(`SELECT * FROM guilds_informations WHERE guild_id = ${message.guild.id}`, function(err, row) {
-
-    const prefix = row[0].guild_prefix
+    const prefix = "!"
     
     if (!message.content.startsWith(prefix)) return;
-
     if (!message.member) message.member =  message.guild.fetchMember(message);
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
@@ -32,5 +26,4 @@ module.exports.run = async (client, message) => {
     if (command) {
           command.run(client, message, args); //executa o comando
     }
-})
-    }
+}

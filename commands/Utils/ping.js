@@ -9,8 +9,7 @@ module.exports = {
       
       const embed = new MessageEmbed()
       .setColor("GREEN")
-      .setDescription(`Ping (WS): **${client.ws.ping}ms**`)
-      .setFooter(`Ping Command`).setTimestamp()
+      .setDescription(`Pinga: **${client.ws.ping}ms**`).setTimestamp()
       
       message.channel.send(embed)
     }
