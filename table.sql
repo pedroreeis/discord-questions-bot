@@ -1,7 +1,7 @@
 /* Para usufruir do bot, você precisa de um banco de dados com essas tabelas. */
 
 CREATE TABLE `zc_questions` (
-	`question_id` INT(4) NOT NULL AUTO_INCREMENT,
+	`question_id` INT(11) NOT NULL AUTO_INCREMENT,
 	`question_name` TEXT NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
 	`question_keywords` TEXT NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
 	`question_answers` TEXT NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
@@ -9,4 +9,5 @@ CREATE TABLE `zc_questions` (
 )
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
+AUTO_INCREMENT=1
 ;
