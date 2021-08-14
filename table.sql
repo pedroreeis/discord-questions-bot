@@ -5,9 +5,9 @@ CREATE TABLE `zc_questions` (
 	`question_name` TEXT NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
 	`question_keywords` TEXT NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
 	`question_answers` TEXT NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
-	PRIMARY KEY (`question_id`) USING BTREE,
-	INDEX `question_id` (`question_id`) USING BTREE
+	PRIMARY KEY (`question_id`) USING BTREE
 )
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
+AUTO_INCREMENT=1
 ;

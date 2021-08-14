@@ -13,7 +13,7 @@ module.exports = {
       .setTitle(`Perguntas - Menu`)
       .setDescription(`Neste menu, você pode configurar o bot para responder automaticamentes perguntas definidas por você.`)
       .addField("**!pergunta criar [nome]**", "Crie a pergunta, o nome utilizado aqui irá servir apenas para identificação. ex: phpmyadmin", false)
-      .addField("**!pergunta keyword [nome] [keywords]**", "Keyword são palavras chave, defina palavras chaves para o bot reconhecer quando alguem fazer uma pergunta, lembre-se de separar essas palavras com virgula. ex: como,acessar,phpmyadmin", false)
+      .addField("**!pergunta keyword [nome] [keywords]**", "Keyword é a pergunta que você deseja identificar, defina a keyword para o bot reconhecer quando alguem fazer uma pergunta. ex: como acessar o phpmyadmin", false)
       .addField("**!pergunta resposta [nome] [resposta]**", "Defina a resposta para tal pergunta, o bot irá enviar a resposta toda vez que verificar que uma mensagem contem todas as keywords definidas.", false)
       .addField("**!pergunta remover [nome]**", "Remova as perguntas do banco de dados, assim o bot irá parar de responde-las.", false)
       .setFooter("[] - Obrigatório, () - Opcional").setTimestamp();
@@ -46,9 +46,9 @@ module.exports = {
           if(!args[2]) return message.channel.send(`VocÊ deve digitar alguma keyword para usar esse comando.`);
 
           if(args[2]) {
-            var sql = `UPDATE zc_questions SET question_name = "${nomepergunta}", question_keywords = "${args[2]}";`
+            var sql = `UPDATE zc_questions SET question_name = "${nomepergunta}", question_keywords = "${args.slice(2).join(" ")}";`
             client.connection.query(sql);
-            const perguntaSucessoKeywordEmbed = new MessageEmbed().setColor("GREEN").setAuthor(client.user.username, client.user.avatarURL()).setTitle(`Perguntas - Keywords (Sucesso)`).setDescription(`Você **definiu** keywords para sua pergunta com sucesso!  \n  Pergunta selecionada: **${nomepergunta}** \n Keywords: ${args[2]}`).setTimestamp();
+            const perguntaSucessoKeywordEmbed = new MessageEmbed().setColor("GREEN").setAuthor(client.user.username, client.user.avatarURL()).setTitle(`Perguntas - Keywords (Sucesso)`).setDescription(`Você **definiu** keywords para sua pergunta com sucesso!  \n  Pergunta selecionada: **${nomepergunta}** \n Keywords: ${args.slice(2).join(" ")}`).setTimestamp();
             message.channel.send(perguntaSucessoKeywordEmbed);
           }
         }

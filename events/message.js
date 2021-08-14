@@ -3,6 +3,18 @@ module.exports.run = async (client, message) => {
     if (!message.guild) return;
 
     const prefix = "!"
+
+    client.connection.query(`SELECT * FROM zc_questions`, async function(err, row) {
+        var arrayNum = row.length;
+        for (var i = 0; i < arrayNum; i++) {
+            var keyword = row[i].question_keywords;
+            if (message.content.includes(keyword)) {
+                message.channel.send(row[i].question_answers);
+            }else {
+                continue;
+            }
+        }
+    })
     
     if (!message.content.startsWith(prefix)) return;
     if (!message.member) message.member =  message.guild.fetchMember(message);
